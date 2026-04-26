@@ -1,34 +1,35 @@
 # Проект FitLife - MVP версия 1.0
 # 1. Знакомство # Ввод данных пользователя Имя /возраст
 print('Добрый день! Вас приветствует Ваш лучший Фитнес-тренер!')
+user_name = input('Представьтесь, пожалуйста!   ')
+
+while True:
+    try:
+        user_age = int(input('Сколько лет Вам исполнилось последний раз?   '))
+        break
+    except ValueError:
+        print('Ошибка: Это не число!')
 
 
-# 2. Сбор данных: запрос возраста(int), веса в кг (float) и роста в м (float)
-def ask_user(ask):
-    """Функция ввода данных пользователя"""
-    if ask != 'Представьтесь, пожалуйста!   ':
-        while True:
-            try:
-                user_parametr = float(input(ask))
-                break
-            except ValueError:
-                print('Ошибка: Введите число!')
-    else:
-        user_parametr = input(ask)
-    return user_parametr
+# 2. Сбор данных: запрос веса в кг (float) и роста в м (float)
+while True:
+    try:
+        user_weight = float(input('Сообщите, пожалуйста, '
+                                  'Ваш вес в кг в формате XX.X   '))
+        break
+    except ValueError:
+        print('Ошибка: Введите число!')
 
-
-user_name = ask_user('Представьтесь, пожалуйста!   ')
-
-
-user_age = int(ask_user('Сколько лет Вам исполнилось последний раз?  '))
-
-
-user_weight = ask_user('Введите, пожалуйста, Ваш вес в формате XX.X  ')
-
-
-user_height = ask_user('Введите, пожалуйста, Ваш рост '
-                       'в метрах в формате Y.YY  ')
+while True:
+    try:
+        user_height = float(input('Введите, пожалуйста, '
+                                  'Ваш рост в метрах в формате Y.YY   '))
+        break
+    except ValueError:
+        print('Ошибка: Введите число!')
+print('Спасибо! Сейчас для Вас будут произведены расчёты ИМТ'
+      ' и нормы потребления воды.')
+print()
 
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
